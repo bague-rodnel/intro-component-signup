@@ -29,8 +29,7 @@ Users should be able to:
 ![](./images/ss/375.JPG)\
 ![](./images/ss/1440.JPG)
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Live View](https://bague-rodnel.github.io/intro-component-signup/)
 
 ## My process
 
