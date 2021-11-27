@@ -131,6 +131,7 @@ section.intro {
 @include media-breakpoint-up(lg) {
   section.intro {
     background-image: url(../images/bg-intro-desktop.png);
+    font-size: 1rem;
 
     & [class|="container"] {
       width: 100%;

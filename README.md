@@ -44,4 +44,4 @@ I didn't bother too much about getting the dimensions to the pixel like I used t
 
 ### Useful resources
 
-- [PurgeCSS](https://purgecss.com/CLI.html#usage) - Bootstrap 5.1.3's bootstrap.scss file is a little over 11K lines. It got purged to just under 700 lines.
+- [PurgeCSS](https://purgecss.com/CLI.html#usage) - Bootstrap 5.1.3's bootstrap.scss file is a little over 11K lines. It got purged to just under 800 lines (then minified)
