@@ -1,0 +1,144 @@
+$primary: hsl(0, 100%, 74%);
+$success: hsl(154, 59%, 51%);
+$secondary: hsl(248, 32%, 49%);
+$dark: hsl(249, 10%, 26%);
+$light: hsl(246, 25%, 77%);
+
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+
+$custom-theme-colors: (
+  "altlight": #f2ebfa,
+  "altdark": #522192,
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-colors: map-merge(
+  $theme-colors-rgb,
+  (
+    "black": to-rgb($black),
+    "white": to-rgb($white),
+    "body": to-rgb($body-color),
+  )
+);
+
+$utilities-text-colors: map-loop(
+  $utilities-colors,
+  rgba-css-var,
+  "$key",
+  "text"
+);
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+
+@import "../bootstrap/scss/bootstrap";
+
+:root {
+  --bs-gutter-x: 1.5rem;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+p {
+  color: rgba($white, 0.9);
+  margin-bottom: 0;
+}
+
+em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.card {
+  border-radius: 0.75rem !important;
+  box-shadow: 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+}
+
+section.intro {
+  min-height: 800px;
+  background-image: url(../images/bg-intro-mobile.png);
+  font-size: 0.9rem;
+
+  form {
+    ::placeholder {
+      color: #666;
+      font-weight: 600;
+    }
+
+    small {
+      font-size: 0.75em;
+    }
+
+    .form-control,
+    .btn {
+      font-weight: 600;
+      padding: 0.8em 1em;
+      border-radius: 0.33rem !important;
+
+      &:active,
+      &:focus,
+      &:focus-visible {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+    .form-control:active,
+    .form-control:focus,
+    .form-control:focus-visible {
+      border: 1px solid $secondary;
+    }
+
+    .btn {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-bottom: 5px inset rgba(0, 0, 0, 0.1);
+    }
+
+    .invalid-feedback {
+      text-align: right;
+      font-style: italic;
+      font-size: 0.7em;
+    }
+
+    &.was-validated .form-control:invalid {
+      color: $primary;
+      background-image: url(../images/icon-error.svg);
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  section.intro [class|="container"] {
+    width: 520px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  section.intro {
+    background-image: url(../images/bg-intro-desktop.png);
+
+    & [class|="container"] {
+      width: 100%;
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  section.intro [class|="container"] {
+    width: 1110px;
+  }
+}
